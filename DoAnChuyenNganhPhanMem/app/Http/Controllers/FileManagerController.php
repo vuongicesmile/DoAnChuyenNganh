@@ -106,6 +106,7 @@ class FileManagerController extends Controller
             //Edit files
             $listFolder = $this->fileManager->where('type', 'folder')->get();
             $file_edit = $file_or_folder_edit;
+
             return view('admin.files.file_edit.edit', compact('listFolder', 'file_edit'));
         }
     }
@@ -131,6 +132,7 @@ class FileManagerController extends Controller
         $this->fileManager->find($id)->update([
             'name' => $request->name . '.' . $this->fileManager->find($id)->extenstion,
             'feature_path' => '/storage/' . $newfile,
+            'description' => $request->contents,
             'parent_id' => $this->fileManager->find($request->parent_id)->id
         ]);
 

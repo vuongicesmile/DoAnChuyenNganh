@@ -47,9 +47,42 @@ Route::prefix('admin')->group(function () {
             'as' => 'categories.edit',
             'uses' =>'CategoryController@edit',
         ]);
-
+        Route::post('/update/{id}',[
+            'as' => 'categories.update',
+            'uses' =>'CategoryController@update',
+        ]);
+        Route::get('/delete/{id}',[
+            'as' => 'categories.delete',
+            'uses' =>'CategoryController@delete',
+        ]);
     });
 
+    //Cretition
+    Route::prefix('cretitions')->group(function (){
+        Route::get('/',[
+            'as' => 'cretitions.index',
+            'uses' =>'CretitionController@index',
+        ]);
+        Route::get('/create',[
+            'as' => 'cretitions.create',
+            'uses' =>'CretitionController@create',
+        ]);
+        Route::post('/store',[
+            'as' => 'cretitions.store',
+            'uses' =>'CretitionController@store',
+        ]);
+        Route::get('/edit/{id}',[
+            'as' => 'cretitions.edit',
+            'uses' =>'CretitionController@edit',
+        ]);
+        Route::get('/delete/{id}',[
+            'as' => 'cretitions.delete',
+            'uses' =>'CretitionController@delete',
+        ]);
+
+
+
+    });
 
 
 

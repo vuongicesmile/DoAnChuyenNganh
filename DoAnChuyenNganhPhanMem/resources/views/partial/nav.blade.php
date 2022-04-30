@@ -21,9 +21,15 @@
             </li>
 
             <li>
+                <a href="{{route('cretitions.index')}}">
+                    <i class="nav-link-icon ti-files"></i>
+                    <span class="nav-link-label">Tiêu chuẩn quản lý</span>
+                </a>
+            </li>
+            <li>
                 <a href="{{route('filemanager.index')}}">
                     <i class="nav-link-icon ti-files"></i>
-                    <span class="nav-link-label">Minh chứng quản lý</span>
+                    <span class="nav-link-label">Cây thư mục quản lý</span>
                 </a>
             </li>
 

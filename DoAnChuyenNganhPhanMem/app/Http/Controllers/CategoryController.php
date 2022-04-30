@@ -60,4 +60,25 @@ class CategoryController extends Controller
         return view('admin.category.edit',compact('category'));
     }
 
+    public function delete($id)
+    {
+        $this->category->find($id)->delete();
+        return redirect()->route('categories.index');
+
+    }
+
+    public function update($id,Request $request)
+    {
+        $this->category->find($id)->update([
+            'name' => $request->name,
+            'feature_path' => '/storage/root/' . $request->name,
+            'type' => 'folder',
+            'extenstion' => NULL,
+            'parent_id' => 0,
+            'user_id' => auth()->id(),
+            'size' => 0,
+            'description' => $request->contents
+        ]);
+        return redirect()->route('categories.index');
+    }
 }

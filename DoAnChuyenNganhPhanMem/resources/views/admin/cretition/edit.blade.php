@@ -24,17 +24,29 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-12">
-                                <form action="{{route('categories.store')}}" method="post">
+                                <form action="{{route('cretitions.store')}}" method="post">
                                     @csrf
                                     <div class="form-group">
                                         <label>Tên chuyên mục</label>
                                         <input type="text" class="form-control " name="name"
-                                               placeholder="Nhập tên chuyên mục" value="">
+                                               placeholder="Nhập tên chuyên mục" value="{{$menuFollowIdEdit->name}}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleFormControlSelect1">Chọn danh mục cha </label>
+                                        <select class="form-control" name="parent_id">
+                                            <option value="0">Chọn danh mục  cha</option>
+                                            {!! $optionSelect !!}
+
+                                            //ep tu string thanh mang
+                                        </select>
                                     </div>
                                     <div class="form-group">
                                         <label>Nhập nội dung</label>
                                         <textarea name="contents" class="form-control tinymce_editor_init" rows="9">
-                                </textarea></div>
+                                            {{$menuFollowIdEdit->description}}
+                                        </textarea>
+                                    </div>
+
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                 </form>
 

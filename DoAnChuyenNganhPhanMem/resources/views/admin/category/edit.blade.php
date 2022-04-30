@@ -16,7 +16,7 @@
         </div>
 
         <div class="row">
-            <div class="col-xl-9">
+            <div class="col-xl-12">
 
                 {{--Phan danh sach file va folder--}}
 
@@ -24,7 +24,7 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-12">
-                                <form action="" method="post">
+                                <form action="{{ route('categories.update',['id'=>$category->id])}}" method="post">
                                     @csrf
                                     <div class="form-group">
                                         <label>Tên chuyên mục</label>

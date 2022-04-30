@@ -49,8 +49,12 @@
 
     <script src="{{asset('file-manager-template/assets/js/sweetalert2@10.js')}}"></script>
     <script src="{{asset('admins/main.js')}}"></script>
-@endsection
+    <script src="{{asset('vendor/select2/select2.min.js')}}"></script>
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js"></script>
+    <script src="{{asset('admins/product/add/add.js')}}"></script>
 
+
+@endsection
 @section('content')
 
     <div class="content">
@@ -81,10 +85,33 @@
                 <form action="{{route('file.upload',['id'=> $parentid])}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
+                        <label for="info">ID người đang tạo :  {{auth()->id()}}</label>
+{{--                        <label for="info">Người đang tạo :  {{auth()->name()}}</label>--}}
+{{--                        <label for="info">Người đang tạo :  {{auth()->email()}}</label>--}}
+                    </div>
+                    <div class="form-group">
+                        <label>Tên tài liệu cần quản lý</label>
+                        <input type="text" class="form-control " name="name"
+                               placeholder="Nhập tên tài liệu" value="">
+                    </div>
+                    <div class="form-group">
+                        <label>Nhập nội dung tài liệu cần quản lý</label>
+                        <textarea name="contents" class="form-control tinymce_editor_init" rows="9">
+                                </textarea></div>
+                    <div class="form-group" style="margin-left: 38px;">
+                        <label for="created_at">Ngày tạo:</label>
+                        <input type="date" id="created_at" name="created_at">
+                    </div>
+                    <div class="form-group">
+                        <label for="updated_at">Ngày chỉnh sửa:</label>
+                        <input type="date" id="updated_at" name="updated_at">
+                    </div>
+                    <div class="form-group">
                         <label>Upload file</label>
                         <input id="files_upload" type="file" multiple name="files_upload[]" class="input-group">
                         <small class="form-text text-muted">Chọn file để up load không được quá 40 MB</small>
                     </div>
+
                     <button type="submit" class="btn btn-primary">Upload</button>
                 </form>
                 {{--Form them file--}}
@@ -93,3 +120,4 @@
     </div>
 
 @endsection
+

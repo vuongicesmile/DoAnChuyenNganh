@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('title')
-    <title>Quản lý chuyên mục</title>
+    <title>Tiêu chuẩn quản lý</title>
 @endsection
 
 
@@ -9,7 +9,7 @@
 @section('content')
     <div class="content">
         <div class="page-header d-flex justify-content-between">
-            <h2>Quản lý chuyên mục</h2>
+            <h2>Tiêu chuẩn quản lý</h2>
             <a href="#" class="files-toggler">
                 <i class="ti-menu"></i>
             </a>
@@ -24,12 +24,21 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-12">
-                                <form action="{{route('categories.store')}}" method="post">
+                                <form action="{{route('cretitions.store')}}" method="post">
                                     @csrf
                                     <div class="form-group">
-                                        <label>Tên chuyên mục</label>
+                                        <label>Tên tiêu chuẩn</label>
                                         <input type="text" class="form-control " name="name"
                                                placeholder="Nhập tên chuyên mục" value="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleFormControlSelect1">Chọn danh mục cha </label>
+                                        <select class="form-control" name="parent_id">
+                                            <option value="0">Chọn danh mục cha</option>
+                                            {!! $optionSelect !!}
+
+                                            //ep tu string thanh mang
+                                        </select>
                                     </div>
                                     <div class="form-group">
                                         <label>Nhập nội dung</label>

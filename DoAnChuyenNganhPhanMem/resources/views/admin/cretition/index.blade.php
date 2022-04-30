@@ -61,7 +61,7 @@
 
                 <div class="table-responsive">
                     <div class="col-md-12">
-                        <a href="{{route('categories.create')}}" class="btn btn-success">Thêm mới </a>
+                        <a href="{{route('cretitions.create')}}" class="btn btn-success">Thêm mới </a>
                     </div>
                     <div class="col-lg-12">
                         <table class="table">
@@ -73,7 +73,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($categories as $items)
+                            @foreach($cretition as $items)
                                 <tr>
                                     <th scope="row">{{$items->id}}</th>
                                     <td>{{$items->name}}</td>
@@ -81,8 +81,8 @@
                                     <td> @if(strlen($items->description) > 30){{substr($items->description, 0, 30)}}
                                         ... @else {{$items->description}}@endif</td>
                                     {{-- 2 nut--}}
-                                    <td><a href="{{route('categories.edit',['id'=> $items->id ])}}" class="btn btn-success">Chỉnh sửa</a></td>
-                                    <td><a href="{{route('categories.delete',['id'=> $items->id ])}}" class="btn btn-danger">Xoá</a></td>
+                                    <td><a href="{{route('cretitions.edit',['id'=> $items->id ])}}" class="btn btn-success">Chỉnh sửa</a></td>
+                                    <td><a href="{{route('cretitions.delete',['id'=> $items->id ])}}" class="btn btn-danger">Xoá</a></td>
                                 </tr>
                             </tbody>
                             @endforeach

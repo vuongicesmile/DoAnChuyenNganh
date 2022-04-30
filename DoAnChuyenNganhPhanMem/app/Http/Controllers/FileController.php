@@ -62,6 +62,7 @@ class FileController extends Controller
                         }
                     }
 
+
                     $this->fileManager->create([
                         'name' => $dataUploadTrait['file_name'],
                         'type' => 'file',
@@ -69,7 +70,8 @@ class FileController extends Controller
                         'user_id' => auth()->id(),
                         'feature_path' => $dataUploadTrait['file_path'],
                         'parent_id' => $id,
-                        'size' => $dataUploadTrait['size']
+                        'size' => $dataUploadTrait['size'],
+                        'description' => $request->contents
                     ]);
                 }
             }
